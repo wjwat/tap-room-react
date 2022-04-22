@@ -1,3 +1,15 @@
+# Tap Room React
+
+```mermaid
+graph TD
+    a[App] --> y[Header]
+    a --> b[BeerControl]
+    a --> z[Footer]
+    b --> c[BeerList]
+    b --> d[BeerDetails]
+    b --> e[BeerForm]
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
