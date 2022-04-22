@@ -1,14 +1,17 @@
 import React from "react";
 import { useState } from "react";
 
-// id: uuidv4(),
-// name: "Beer 1",
-// brand: "Beer Company 1",
-// price: 10,
-// alcoholContent: 0.1,
-// pints: 124
-
 function BeerDetail({ beer }) {
+  const pullPint = (beer.pints > 0) ?
+    <button
+      type="button"
+      onClick={() => 1+1}
+    >
+      Give 'er a pull!
+    </button>
+    :
+    <></>;
+
   return (
     <section>
       <ul>
@@ -18,6 +21,7 @@ function BeerDetail({ beer }) {
         <li>{beer.alcoholContent}</li>
         <li>{beer.pints}</li>
       </ul>
+      {pullPint}
     </section>
   )
 }
@@ -26,13 +30,14 @@ export default function BeerCard({ beer }) {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div
-      onClick={() => setIsActive(!isActive)}
-    >
-      <h1>
+    <>
+      <h1
+        onClick={() => setIsActive(!isActive)}
+      >
+        {!isActive ? <>+</> : <>-</>}
         {beer.name}
       </h1>
       {isActive ? (<BeerDetail beer={beer} />) : (<></>)}
-    </div>
+    </>
   );
 };
