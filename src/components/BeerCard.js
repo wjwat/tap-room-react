@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-function BeerDetail({ beer }) {
+function BeerDetail({ beer, decrementPints }) {
   const pullPint = (beer.pints > 0) ?
     <button
       type="button"
-      onClick={() => 1+1}
+      onClick={() => decrementPints(beer)}
     >
       Give 'er a pull!
     </button>
@@ -26,7 +26,7 @@ function BeerDetail({ beer }) {
   )
 }
 
-export default function BeerCard({ beer }) {
+export default function BeerCard({ beer, decrementPints }) {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -37,7 +37,11 @@ export default function BeerCard({ beer }) {
         {!isActive ? <>+</> : <>-</>}
         {beer.name}
       </h1>
-      {isActive ? (<BeerDetail beer={beer} />) : (<></>)}
+      {
+        isActive ? 
+          (<BeerDetail beer={beer} decrementPints={decrementPints} />) :
+          (<></>)
+      }
     </>
   );
 };
