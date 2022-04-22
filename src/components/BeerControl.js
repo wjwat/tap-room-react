@@ -1,8 +1,9 @@
 import React from "react";
+import { vs as uuidv4 } from 'uuid';
 
 export default class BeerControl extends React.Component {
   constructor(props) {
-    // do stuff
+    super(props);
   }
 
   render() {
