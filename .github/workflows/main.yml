@@ -29,7 +29,7 @@ jobs:
       - run: npm ci
       - run: npm run deploy
 
-      # - name: Deploy with gh-pages
+      # - name: Build artifacts with `gh-pages`
       #   # I'm not sure the first line of this command is necessary. As I understand it
       #   # gh-pages (`npm run deploy`) should build the site then make a commit
       #   # directly to my `gh-pages` branch. But what's happening is it builds it
