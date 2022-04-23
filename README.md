@@ -14,6 +14,9 @@
 
 ## :memo: Description
 
+A project designed to familiarize myself with React. Built using functional &
+class components, and managing various pieces of state.
+
 ## :package: Component Diagram
 
 ```mermaid
