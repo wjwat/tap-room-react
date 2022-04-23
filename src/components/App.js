@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import BeerControl from "./BeerControl";
 
 export default function App() {
-  const [isDrunk, setIsDrunk] = useState(true);
+  const [isDrunk, setIsDrunk] = useState(false);
 
   const onHoverDrunk = (value) => {
     setIsDrunk(value);
