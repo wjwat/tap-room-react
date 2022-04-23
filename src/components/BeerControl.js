@@ -77,8 +77,15 @@ export default class BeerControl extends React.Component {
   }
 
   decrementPints = (beer) => {
-    beer.pints = (beer.pints > 0) ? beer.pints - 1 : 0;
-    this.updateBeer(beer);
+    this.setState(p => {
+      return ({
+        beers: p.beers.map(e => (e.id === beer.id) ? 
+          ({ ...e, pints: (beer.pints > 0) ? beer.pints - 1 : 0 }) : e)
+        })
+      });
+    // });
+    // beer.pints = (beer.pints > 0) ? beer.pints - 1 : 0;
+    // this.updateBeer(beer);
   }
 
   handleViewChange = (newView) => {

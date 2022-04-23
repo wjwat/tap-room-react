@@ -27,11 +27,11 @@ function BeerDetail({
   return (
     <section>
       <ul>
-        <li>{beer.name}</li>
-        <li>{beer.brand}</li>
-        <li>{beer.price}</li>
-        <li>{beer.alcoholContent}</li>
-        <li>{beer.pints}</li>
+        <li><b>NAME: </b>{beer.name}</li>
+        <li><b>BRAND: </b>{beer.brand}</li>
+        <li><b>PRICE: </b>{beer.price}</li>
+        <li><b>ABV: </b>{beer.alcoholContent}</li>
+        <li><b>PINTS IN KEG: </b>{beer.pints}</li>
       </ul>
       {pullPint}
       <button
