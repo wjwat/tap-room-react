@@ -28,13 +28,16 @@ export default class BeerControl extends React.Component {
     super(props);
 
     this.state = {
-      view: "home",
+      view: "edit",
+      editBeer: null,
       beers: testBeers
     };
   }
 
   addBeer = (beer) => {
-    this.setState((state) => ({beers: [...state.beers, ...beer]}));
+    this.setState((state) => {
+      return {beers: [...state.beers, {...beer}]}
+    });
   }
 
   updateBeer = (beer) => {
@@ -53,33 +56,43 @@ export default class BeerControl extends React.Component {
     }
   }
 
+  setEditBeer = (beer) => {
+    this.setState(() => {
+      return {editBeer: beer}
+    });
+  }
+
   decrementPints = (beer) => {
     beer.pints = (beer.pints > 0) ? beer.pints - 1 : 0;
     this.updateBeer(beer);
   }
 
-  render() {
-    let view = null;
+  handleViewChange = (newView) => {
+    this.setState(() => ({ view: newView}))
+  }
 
+  render() {
     switch (this.state.view) {
       case "new":
-        break;
       case "edit":
-        view = <BeerForm />
-        break;
+        return ( 
+          <BeerForm
+            beer={this.state.view === "edit" ? this.state.editBeer : undefined}
+            onSubmitFunc={this.state.view === "edit" ? this.updateBeer : this.addBeer}
+            onViewChange={this.handleViewChange}
+          />
+        )
+
       case "home":
       default:
-        view = <BeerList
+        return (
+          <BeerList
             beers={this.state.beers}
             decrementPints={this.decrementPints}
+            onViewChange={this.handleViewChange}
+            onSetEditBeer={this.setEditBeer}
           />
-        break;
+        )
     }
-
-    return (
-      <>
-        {view}
-      </>
-    )
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function BeerDetail({ beer, decrementPints }) {
+function BeerDetail({ beer, decrementPints, onViewChange, onSetEditBeer }) {
   const pullPint = (beer.pints > 0) ?
     <button
       type="button"
@@ -22,11 +22,20 @@ function BeerDetail({ beer, decrementPints }) {
         <li>{beer.pints}</li>
       </ul>
       {pullPint}
+      <button
+        type="button"
+        onClick={() => {
+          onSetEditBeer(beer);
+          onViewChange("edit")
+        }}
+      >
+        Edit
+      </button>
     </section>
   )
 }
 
-export default function BeerCard({ beer, decrementPints }) {
+export default function BeerCard({ beer, decrementPints, onViewChange, onSetEditBeer }) {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -39,7 +48,12 @@ export default function BeerCard({ beer, decrementPints }) {
       </h1>
       {
         isActive ? 
-          (<BeerDetail beer={beer} decrementPints={decrementPints} />) :
+          (<BeerDetail
+              beer={beer}
+              decrementPints={decrementPints}
+              onViewChange={onViewChange}
+              onSetEditBeer={onSetEditBeer}
+            />) :
           (<></>)
       }
     </>
