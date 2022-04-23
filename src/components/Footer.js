@@ -1,21 +1,29 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-const footerStyle = {
-  backgroundColor: "#13293D",
-  color: "#FFFFFF",
-  marginTop: "auto",
-  padding: "0.5rem 1rem",
+const footerStyles = {
   textAlign: "center",
+  marginLeft: "auto",
+  marginRight: "auto"
 }
 
-export default function Footer() {
+function Footer({ onHoverDrunk }) {
   return (
-    <footer
-      style={footerStyle}
-    >
-      <p>
-        kthxbye
-      </p>
+    <footer>
+      <div>
+        <p
+          style={footerStyles}
+          onMouseEnter={() => onHoverDrunk(true)}
+          onMouseLeave={() => onHoverDrunk(false)}
+          className="lilguy"
+        >＼(´◓ Д ◔`)／</p>
+      </div>
     </footer>
   );
 }
+
+Footer.propTypes = {
+  onHoverDrunk: PropTypes.func
+}
+
+export default Footer;
