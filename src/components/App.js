@@ -1,26 +1,29 @@
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import BeerControl from "./BeerControl";
 
-const mainContent = {
-  maxWidth: "50rem",
-  margin: "0 auto",
-  padding: "1rem",
-  flexGrow: "1"
-}
+export default function App() {
+  const [isDrunk, setIsDrunk] = useState(true);
 
-function App() {
+  const onHoverDrunk = (value) => {
+    setIsDrunk(value);
+  }
+
   return (
     <>
-      <Header />
+      <Header/>
       <main
-        style={mainContent}
+        className={isDrunk ? "drunk" : ""}
       >
+        <h1>Mr. Roboger's Home For The Drunk And Disorderly</h1>
+        <p>Grab a seat, get hammered.</p>
+        <p>(Click the name of a beer to open the details about it, and pour yourself one.)</p>
         <BeerControl />
       </main>
-      <Footer />
+      <Footer
+        onHoverDrunk={onHoverDrunk}
+      />
     </>
   );
 }
-
-export default App;
