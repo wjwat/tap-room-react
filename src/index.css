@@ -1,25 +1,52 @@
-html, body, #root {
-  height: 100%;
-  width: 100%;
-  margin: 0;
+:root {
+  --width-content: 40rem;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
+button {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+legend {
+  font-size: 150%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+legend:hover {
+  color: red;
+}
+
+*, button {
+  cursor: url(pointer.png), auto;
+}
+
+/*** LIL GUY ***/
+
+.drunk {
+  filter: blur(4px);
+}
+
+.lilguy:hover {
+  color: green;
+  font-weight: bold;
+  text-shadow: purple 1px 1px;
+}
+
+.lilguy:hover:after {
+  text-shadow: none;
+  background: linear-gradient(to right, #60aa20, #4B350C, #60aa20, purple, #60aa20, #4B350C, #60aa20);
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 5s ease-in-out infinite;
+  background-size: 400% 100%;
+  content: " <(I THINK IM GOING TO BE SICK...)";
+}
+
+@keyframes rainbow_animation {
+  0%,100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
 }
