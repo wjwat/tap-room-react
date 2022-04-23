@@ -27,14 +27,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      # - run: npm run deploy
+      - run: npm run deploy
 
-      - name: Deploy with gh-pages
-        run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Deploy with gh-pages
+      #   # I'm not sure the first line of this command is necessary. As I understand it
+      #   # gh-pages (`npm run deploy`) should build the site then make a commit
+      #   # directly to my `gh-pages` branch. But what's happening is it builds it
+      #   # and then nothing. Adding the `Deploy` action underneath fixes this
+      #   # but I don't know why.
+      #   run: |
+      #     git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+      #     npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
