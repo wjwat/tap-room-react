@@ -11,7 +11,7 @@ const testBeers = [
     brand: "Beer Company 1",
     price: 10,
     alcoholContent: 0.1,
-    pints: 124
+    pints: 11
   },
   {
     id: uuidv4(),
@@ -28,7 +28,7 @@ export default class BeerControl extends React.Component {
     super(props);
 
     this.state = {
-      view: "edit",
+      view: "home",
       editBeer: null,
       beers: testBeers
     };
@@ -46,20 +46,34 @@ export default class BeerControl extends React.Component {
 
     // What happens if we can't find that beer? Nothing.
     if (index !== -1) {
-      this.setState((state) => {
+      this.setState(state => {
         const newBeers = [...state.beers];
 
         newBeers[index] = {...beer};
 
-        return {beers: [...newBeers]};
+        return { beers: [...newBeers] };
       });
     }
   }
 
   setEditBeer = (beer) => {
-    this.setState(() => {
-      return {editBeer: beer}
-    });
+    this.setState(() => ({editBeer: beer}));
+  }
+
+  deleteBeer = (beer) => {
+    const index = this.state.beers
+      .findIndex(e => beer.id === e.id);
+
+    if (index !== -1) {
+      this.setState(state => {
+        const newBeers = [...state.beers];
+
+        newBeers.splice(index, 1);
+
+        // Do I need to spread my `newBeers`? Unsure.
+        return { beers: [...newBeers] }
+      });
+    }
   }
 
   decrementPints = (beer) => {
@@ -91,6 +105,7 @@ export default class BeerControl extends React.Component {
             decrementPints={this.decrementPints}
             onViewChange={this.handleViewChange}
             onSetEditBeer={this.setEditBeer}
+            onDeleteBeer={this.deleteBeer}
           />
         )
     }
