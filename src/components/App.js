@@ -18,6 +18,11 @@ export default function App() {
       >
         <h1>Mr. Roboger's Home For The Drunk And Disorderly</h1>
         <p>Grab a seat, get hammered.</p>
+        <p
+          style={{fontSize: "50%"}}
+        >
+          Please drink responsibly.
+        </p>
         <p>(Click the name of a beer to open the details about it, and pour yourself one.)</p>
         <BeerControl />
       </main>
