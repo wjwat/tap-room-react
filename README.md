@@ -2,7 +2,9 @@
 
 #### By [Will W.](https://wjwat.com/)
 
-#### Build out a SPA using React.
+#### Build a SPA using React.
+
+![Screenshot of project](./screenshot.png)
 
 ## :computer: Technologies Used
 
