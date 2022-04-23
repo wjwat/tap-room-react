@@ -1,16 +1,28 @@
 import React from "react";
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
-function BeerDetail({ beer, decrementPints, onViewChange, onSetEditBeer }) {
+function BeerDetail({
+  beer,
+  decrementPints,
+  onViewChange,
+  onSetEditBeer,
+  onDeleteBeer
+}) {
   const pullPint = (beer.pints > 0) ?
     <button
       type="button"
       onClick={() => decrementPints(beer)}
     >
-      Give 'er a pull!
+      Give it a pull!
     </button>
     :
-    <></>;
+    <button
+      type="button"
+      disabled
+    >
+      I think you've had too many...
+    </button>;
 
   return (
     <section>
@@ -31,21 +43,45 @@ function BeerDetail({ beer, decrementPints, onViewChange, onSetEditBeer }) {
       >
         Edit
       </button>
+      <button
+        type="button"
+        style={{backgroundColor: "red"}}
+        onClick={() => {
+          onDeleteBeer(beer)
+        }}
+      >
+        DELETE
+      </button>
     </section>
   )
 }
 
-export default function BeerCard({ beer, decrementPints, onViewChange, onSetEditBeer }) {
+function BeerCard({
+  beer,
+  decrementPints,
+  onViewChange,
+  onSetEditBeer,
+  onDeleteBeer
+}) {
   const [isActive, setIsActive] = useState(false);
+  let pintText = <></>;
+
+  if (beer.pints <= 10 && beer.pints > 0) {
+    pintText = <span style={{color: "blue"}}> (Almost Out!)</span>;
+  } else if (beer.pints === 0) {
+    pintText = <span style={{color: "red"}}> (OUT)</span>;
+  }
 
   return (
     <>
-      <h1
+      <fieldset>
+      <legend
         onClick={() => setIsActive(!isActive)}
       >
-        {!isActive ? <>+</> : <>-</>}
+        {!isActive ? <>+ </> : <>🍻 </>}
         {beer.name}
-      </h1>
+        {pintText}
+      </legend>
       {
         isActive ? 
           (<BeerDetail
@@ -53,9 +89,29 @@ export default function BeerCard({ beer, decrementPints, onViewChange, onSetEdit
               decrementPints={decrementPints}
               onViewChange={onViewChange}
               onSetEditBeer={onSetEditBeer}
+              onDeleteBeer={onDeleteBeer}
             />) :
           (<></>)
       }
+      </fieldset>
     </>
   );
 };
+
+BeerDetail.propTypes = {
+  beers: PropTypes.arrayOf(PropTypes.object),
+  decrementPints: PropTypes.func,
+  onViewChange: PropTypes.func,
+  onSetEditBeer: PropTypes.func,
+  onDeleteBeer: PropTypes.func
+}
+
+BeerCard.propTypes = {
+  beers: PropTypes.arrayOf(PropTypes.object),
+  decrementPints: PropTypes.func,
+  onViewChange: PropTypes.func,
+  onSetEditBeer: PropTypes.func,
+  onDeleteBeer: PropTypes.func
+}
+
+export default BeerCard;

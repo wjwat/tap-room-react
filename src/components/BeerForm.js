@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function BeerForm({ beer, onSubmitFunc, onViewChange }) {
+function BeerForm({ beer, onSubmitFunc, onViewChange }) {
   const editBeer = !(typeof beer === 'undefined' || beer === null);
   const buttonText = (editBeer) ? "EDIT" : "CREATE";
 
@@ -15,7 +17,8 @@ export default function BeerForm({ beer, onSubmitFunc, onViewChange }) {
       brand: event.target.brand.value,
       price: parseInt(event.target.price.value),
       alcoholContent: parseFloat(event.target.alcoholContent.value),
-      pints: (editBeer) ? oldBeer.pints : 124
+      pints: (editBeer) ? oldBeer.pints : 124,
+      id: (editBeer) ? oldBeer.id : uuidv4()
     }
 
     onSubmitFunc(formBeer);
@@ -76,3 +79,11 @@ export default function BeerForm({ beer, onSubmitFunc, onViewChange }) {
     </>
   )
 }
+
+BeerForm.propTypes = {
+  beers: PropTypes.arrayOf(PropTypes.object),
+  onViewChange: PropTypes.func,
+  onSubmitFunc: PropTypes.func
+}
+
+export default BeerForm;
