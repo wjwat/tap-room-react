@@ -7,16 +7,16 @@ import BeerList from "./BeerList";
 const testBeers = [
   {
     id: uuidv4(),
-    name: "Beer 1",
-    brand: "Beer Company 1",
+    name: "Duff",
+    brand: "Duff Beer Company",
     price: 10,
     alcoholContent: 0.1,
     pints: 11
   },
   {
     id: uuidv4(),
-    name: "Beer 2",
-    brand: "Beer Company 2",
+    name: "Fudd",
+    brand: "Fudd Beer Company",
     price: 5,
     alcoholContent: 9.9,
     pints: 124
