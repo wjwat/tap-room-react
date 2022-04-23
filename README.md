@@ -1,4 +1,18 @@
-# Tap Room React
+# :beer: Tap Room React :beers:
+
+#### By [Will W.](https://wjwat.com/)
+
+#### Build out a SPA using React.
+
+## :computer: Technologies Used
+
+* [React](https://reactjs.org/) / [Create React App](https://create-react-app.dev/)
+* JavaScript / [Node](https://nodejs.org/en/) / [npm](https://www.npmjs.com/)
+* HTML / CSS / [YACCK](https://github.com/sphars/yacck)
+
+## :memo: Description
+
+## :package: Component Diagram
 
 ```mermaid
 graph TD
@@ -6,77 +20,75 @@ graph TD
     a --> b[BeerControl]
     a --> z[Footer]
     b --> c[BeerList]
-    b --> d[BeerDetails]
-    b --> e[BeerForm]
+    c --> d[BeerCard]
+    d --> e[BeerDetails]
+    b --> f[BeerForm]
 ```
 
-# Getting Started with Create React App
+## :gear: Setup/Installation & Usage Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Clone this
+  repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+  to your device
+- [Install Node &
+  npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+  - This project was developed with Node version 17.9.0, any other version is
+    not guaranteed to work.
+- [Using your
+  terminal](https://www.freecodecamp.org/news/how-you-can-be-more-productive-right-now-using-bash-29a976fb1ab4/)
+  navigate to the directory where you have cloned this repo.
+- Run one of the scripts below.
 
-## Available Scripts
+### Scripts
 
-In the project directory, you can run:
+In the project directory you can run:
 
-### `npm start`
+- `npm start` \
+    Runs the app in the development mode. \
+    Open [http://localhost:3000](http://localhost:3000) to view it in your
+    browser. The page will reload when you make changes. \
+    You may also see any lint errors in the console.
+- `npm run build` \
+    Builds the app for production to the `build` folder.\
+    It correctly bundles React in production mode and optimizes the build for the
+    best performance.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    The build is minified and the filenames include the hashes.\
+    Your app is ready to be deployed!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    See the section about
+    [deployment](https://facebook.github.io/create-react-app/docs/deployment) for
+    more information.
+- `npm run eject` \
+    **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### `npm test`
+    If you aren't satisfied with the build tool and configuration choices, you
+    can `eject` at any time. This command will remove the single build
+    dependency from your project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Instead, it will copy all the configuration files and the transitive
+    dependencies (webpack, Babel, ESLint, etc) right into your project so you
+    have full control over them. All of the commands except `eject` will still
+    work, but they will point to the copied scripts so you can tweak them. At
+    this point you're on your own.
 
-### `npm run build`
+    You don't have to ever use `eject`. The curated feature set is suitable for
+    small and middle deployments, and you shouldn't feel obligated to use this
+    feature. However we understand that this tool wouldn't be useful if you
+    couldn't customize it when you are ready for it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## :page_facing_up: Notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- None at this moment.
 
-### `npm run eject`
+## :lady_beetle: Known Bugs
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* If any are found please feel free to open an issue or email me at wjwat at
+  onionslice dot org
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :warning: License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[MIT License](https://opensource.org/licenses/MIT)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Copyright (c) 2022 Will W. ＼(´◓ Д ◔`)／
