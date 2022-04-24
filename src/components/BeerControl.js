@@ -57,7 +57,7 @@ export default class BeerControl extends React.Component {
   }
 
   setEditBeer = (beer) => {
-    this.setState(() => ({editBeer: beer}));
+    this.setState(() => ({ editBeer: beer }));
   }
 
   deleteBeer = (beer) => {
@@ -89,7 +89,7 @@ export default class BeerControl extends React.Component {
   }
 
   handleViewChange = (newView) => {
-    this.setState(() => ({ view: newView}))
+    this.setState(() => ({ view: newView }))
   }
 
   render() {

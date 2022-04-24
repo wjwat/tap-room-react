@@ -29,7 +29,7 @@ function BeerDetail({
       <ul>
         <li><b>NAME: </b>{beer.name}</li>
         <li><b>BRAND: </b>{beer.brand}</li>
-        <li><b>PRICE: </b>{beer.price}</li>
+        <li style={{color: "#FF851B"}}><b>PRICE: </b>{beer.price}</li>
         <li><b>ABV: </b>{beer.alcoholContent}</li>
         <li><b>PINTS IN KEG: </b>{beer.pints}</li>
       </ul>
