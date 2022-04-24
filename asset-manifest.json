@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/tap-room-react/static/css/main.fb66c1eb.css",
-    "main.js": "/tap-room-react/static/js/main.ef1b1aa1.js",
+    "main.js": "/tap-room-react/static/js/main.efb6845a.js",
     "index.html": "/tap-room-react/index.html",
     "main.fb66c1eb.css.map": "/tap-room-react/static/css/main.fb66c1eb.css.map",
-    "main.ef1b1aa1.js.map": "/tap-room-react/static/js/main.ef1b1aa1.js.map"
+    "main.efb6845a.js.map": "/tap-room-react/static/js/main.efb6845a.js.map"
   },
   "entrypoints": [
     "static/css/main.fb66c1eb.css",
-    "static/js/main.ef1b1aa1.js"
+    "static/js/main.efb6845a.js"
   ]
 }
