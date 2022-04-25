@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import PropTypes from 'prop-types';
+import Modal from './Modal';
 
 function BeerDetail({
   beer,
@@ -9,6 +10,7 @@ function BeerDetail({
   onSetEditBeer,
   onDeleteBeer
 }) {
+  const [modalState, setModalState] = React.useState(false);
   const pullPint = (beer.pints > 0) ?
     <button
       type="button"
@@ -25,34 +27,42 @@ function BeerDetail({
     </button>;
 
   return (
-    <section>
-      <ul>
-        <li><b>NAME: </b>{beer.name}</li>
-        <li><b>BRAND: </b>{beer.brand}</li>
-        <li style={{color: "#FF851B"}}><b>PRICE: </b>{beer.price}</li>
-        <li><b>ABV: </b>{beer.alcoholContent}</li>
-        <li><b>PINTS IN KEG: </b>{beer.pints}</li>
-      </ul>
-      {pullPint}
-      <button
-        type="button"
-        onClick={() => {
-          onSetEditBeer(beer);
-          onViewChange("edit")
-        }}
-      >
-        Edit
-      </button>
-      <button
-        type="button"
-        style={{backgroundColor: "red"}}
-        onClick={() => {
-          onDeleteBeer(beer)
-        }}
-      >
-        DELETE
-      </button>
-    </section>
+    <>
+      <section>
+        <ul>
+          <li><b>NAME: </b>{beer.name}</li>
+          <li><b>BRAND: </b>{beer.brand}</li>
+          <li style={{color: "#FF851B"}}><b>PRICE: </b>{beer.price}</li>
+          <li><b>ABV: </b>{beer.alcoholContent}</li>
+          <li><b>PINTS IN KEG: </b>{beer.pints}</li>
+        </ul>
+        {pullPint}
+        <button
+          type="button"
+          onClick={() => {
+            onSetEditBeer(beer);
+            onViewChange("edit")
+          }}
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          style={{backgroundColor: "red"}}
+          //onClick={() => { onDeleteBeer(beer) }}
+          onClick={() => setModalState(!modalState)}
+        >
+          DELETE
+        </button>
+      </section>
+      {modalState ?
+        <Modal
+          beer={beer}
+          onDeleteBeer={onDeleteBeer}
+          onShowModal={setModalState}
+        /> :
+        <></>}
+    </>
   )
 }
 
