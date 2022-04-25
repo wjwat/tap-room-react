@@ -27,7 +27,8 @@ graph TD
     b --> c[BeerList]
     c --> d[BeerCard]
     d --> e[BeerDetails]
-    b --> f[BeerForm]
+    e --> f[Modal]
+    b --> g[BeerForm]
 ```
 
 ## :gear: Setup/Installation & Usage Instructions
